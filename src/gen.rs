@@ -221,7 +221,7 @@ fn load_from_path(bindings: &Bindings) -> ImplItemMethod {
 
     let mut binding_struct_fields = vec![FieldValue {
         colon_token: Some(Default::default()),
-        member: syn::Member::Named(Ident::new("_library", Span::call_site())),
+        member: Member::Named(Ident::new("_library", Span::call_site())),
         expr: Expr::Path(ExprPath {
             path: short_path("library"),
             attrs: Vec::new(),
@@ -279,7 +279,7 @@ fn load_from_path(bindings: &Bindings) -> ImplItemMethod {
         stmts.push(assignment);
         binding_struct_fields.push(FieldValue {
             colon_token: None,
-            member: syn::Member::Named(Ident::new(
+            member: Member::Named(Ident::new(
                 &argument,
                 Span::call_site(),
             )),

@@ -15,7 +15,7 @@ fn main() -> Result<(), Error> {
     for whitelist_function in &args.whitelist_functions {
         // hack because builder methods take self by value
         let tmp = std::mem::replace(&mut builder, bindgen::builder());
-        builder = tmp.whitelist_function(whitelist_function);
+        builder = tmp.allowlist_function(whitelist_function);
     }
 
     let strategy = args.strategy()?;
